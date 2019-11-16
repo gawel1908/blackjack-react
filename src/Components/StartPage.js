@@ -20,16 +20,17 @@ class StartPage extends Component{
 
     handleSubmit = event => {
         event.preventDefault();
-
-        if(!this.state.name){
+        const {age, name} = this.state;
+        if(!name){
             return;
         }
-        if(!this.state.age){
+        if(!age){
             return;
         }
-        if(this.state.age < 18){
+        if(age < 18){
             return;
         }
+        localStorage.setItem('name', name);
         this.setState({ready: true});
 
     }
@@ -37,21 +38,23 @@ class StartPage extends Component{
     render(){
         const { name, age, ready } = this.state;
         
-        if(this.state.ready){
+        if(ready){
             return <Redirect to="/game"/>
         }
         return(
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Nick:
-                    <input type="text" value={name} onChange={this.handleInputChange} />
-                </label>
-                <label>
-                    Wiek:
-                    <input type="number" value={age} onChange={this.handleInputChange} />
-                </label>
-                <input type="submit" value="Graj" />
-            </form>
+            <div className="start-page">
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        <span className="input-header">Nick:</span>
+                        <input type="text" value={name} onChange={this.handleInputChange} />
+                    </label>
+                    <label>
+                        <span className="input-header">Wiek:</span>
+                        <input type="number" value={age} onChange={this.handleInputChange} />
+                    </label>
+                    <input className="play-button" type="submit" value="Graj" />
+                </form>
+            </div>
         )
     }
 }

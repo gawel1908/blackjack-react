@@ -10,7 +10,6 @@ function App() {
     <Router>
       <Route path="/" exact component={StartPage}/>
       <Route path="/game" exact component={Game}/>
-      <Route path="/highscores" exact component={HighScores}/>
     </Router>
   );
 }

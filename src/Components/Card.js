@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Card = props => (
-    <div className={props.card}>
+    <div className={props.className}>
     </div>
 )
 

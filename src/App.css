@@ -1,22 +1,601 @@
-.App {
-  text-align: center;
+html {
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  background-color: skyblue;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.start-page{
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.start-page form{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.start-page label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-header{
+  margin: 5px;
+}
+.bet-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+
+}
+.bet{
+  font-size: 26px;
+  text-align: center;
+  margin: 10px;
+
+}
+
+.bet-button{
+  margin-top: 20px;
+  width: 100px;
+}
+
+.play-button{
+  border: 1px solid black;
+  background-color: white;
+  text-transform: uppercase;
+  padding: 20px;
+  width: 150px;
+  margin: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.hand{
+  display: flex;
+  justify-content: center;
+}
+
+.game-status{
+  margin-top: -30px;
+  height: 100px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info{
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.lose{
+  color: red;
+}
+.win{
+  color: green;
+}
+
+.panel{
+  display: flex;
+  justify-content: center;
+}
+.player-info{
+  margin-left: 100px;
+}
+h2, h3{
+  margin-top: 10px;
+}
+.game-button{
+  margin-left: 20px;
+  padding: 15px;
+  border: 1px solid black;
+  background-color: white;
+  font-weight: 600;
+  cursor: pointer;
+  outline: 0;
+  border-radius: 5px;
+}
+
+.card-2c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/2C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-2d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/2D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-2h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/2H.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-2s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/2S.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-3c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/3C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-3d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/3D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-3h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/3H.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-3s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/3S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-4c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/4C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-4d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/4D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-4h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/4H.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-4s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/4S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-5c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/5C.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-5d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/5D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-5h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/5H.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-5s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/5S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-6c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/6C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-6d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/6D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-6h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/6H.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-6s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/6S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-7c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/7C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-7d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/7D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-7h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/7H.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-7s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/7S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.card-8c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/8C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-8d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/8D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-8h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/8H.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-8s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/8S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.card-9c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/9C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-9d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/9D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-9h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/9H.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-9s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/9S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+
+.card-10c{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/10C.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-10d{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/10D.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-10h{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/10H.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-10s{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/10S.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.card-jc{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/JC.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-jd{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/JD.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-jh{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/JH.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-js{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/JS.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.card-qc{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/QC.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-qd{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/QD.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-qh{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/QH.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-qs{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/QS.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.card-kc{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/KC.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-kd{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/KD.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-kh{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/KH.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-ks{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/KS.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.card-ac{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/AC.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-ad{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/AD.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.card-ah{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/AH.png');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-as{
+  width: 100px;
+  height: 200px;
+  margin: 20px 5px;
+  background-image: url('./images/cards/AS.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }

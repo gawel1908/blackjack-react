@@ -6,7 +6,8 @@ class StartPage extends Component{
     state ={
         name: "",
         age: "",
-        ready: false
+        ready: false,
+        badName: false
     }
 
     handleInputChange = event => {
@@ -22,37 +23,33 @@ class StartPage extends Component{
         event.preventDefault();
         const {age, name} = this.state;
         if(!name){
-            return;
+            this.setState({badName: true});
+        }else{
+            
+            localStorage.setItem('name', name);
+            this.setState({ready: true, badName: false});
         }
-        if(!age){
-            return;
-        }
-        if(age < 18){
-            return;
-        }
-        localStorage.setItem('name', name);
-        this.setState({ready: true});
+       
 
     }
 
     render(){
-        const { name, age, ready } = this.state;
+        const { name, age, ready, badName  } = this.state;
         
         if(ready){
             return <Redirect to="/game"/>
         }
         return(
             <div className="start-page">
+                <h1>BlackJack</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         <span className="input-header">Nick:</span>
                         <input type="text" value={name} onChange={this.handleInputChange} />
+                        {badName ? <span className="validation-message">Nick is required</span> : null}
                     </label>
-                    <label>
-                        <span className="input-header">Wiek:</span>
-                        <input type="number" value={age} onChange={this.handleInputChange} />
-                    </label>
-                    <input className="play-button" type="submit" value="Graj" />
+                    
+                    <input className="play-button" type="submit" value="Play" />
                 </form>
             </div>
         )

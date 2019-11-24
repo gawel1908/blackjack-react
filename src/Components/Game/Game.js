@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Hand from './Hand';
 import DealersHand from './DealersHand';
-import cards from '../data/cards';
-
-
+import Bet from './Bet';
+import cards from '../../data/cards';
+import { Redirect } from 'react-router';
 
 class Game extends Component{
 
@@ -19,7 +19,8 @@ class Game extends Component{
         playerWin: false,
         dealerWin: false,
         playerName: '',
-        draw: false
+        draw: false,
+        finish: false
         
     }
 
@@ -127,9 +128,15 @@ class Game extends Component{
     }
 
     endRound = () =>{
-        
         this.getDealerCard();
-        
+    }
+
+    endGame = () =>{
+        const { playerName, money } = this.state;
+        const highscores = JSON.parse(localStorage.getItem('highscores'));
+        highscores.push({name: playerName, score: money});
+        localStorage.setItem(highscores, JSON.stringify(highscores))
+        this.setState({finish: true});
     }
     
     componentDidMount(){
@@ -148,7 +155,11 @@ class Game extends Component{
 
 
     render(){
-        const { gameStarted, bet, money, playerName, dealerScore, playerScore, dealerCards, playerCards, playerWin, dealerWin, draw } = this.state;
+        const { gameStarted, bet, money, playerName, dealerScore, playerScore, dealerCards, playerCards, playerWin, dealerWin, draw, finish } = this.state;
+        
+        if(finish){
+            return <Redirect to="/highscores"/>
+        }
         if(gameStarted){
             return(
                 <div>
@@ -162,7 +173,11 @@ class Game extends Component{
                         <div className="info win">{playerWin ? 'You won!' : null}</div>
                         <div className="info draw">{draw ? 'Draw.' : null}</div>
                         <div>
-                            { draw || playerWin || dealerWin ? <button className="game-button" onClick={this.startNewGame}>Play again</button> : null}
+                            { draw || playerWin || dealerWin ? 
+                            <div>
+                                <button className="game-button" onClick={this.startNewGame}>Play again</button>
+                                <button className="game-button" onClick={this.endGame}>End game and save score</button>
+                            </div> : null}
                         </div>
                     </div>
                     <div className="panel">
@@ -177,19 +192,7 @@ class Game extends Component{
             )
         }else{
             return(
-                <div className="bet-container">
-                    <div>
-                        <h3>Your money: {money}</h3>
-                    </div>
-                    <div>
-                        <button className="game-button" disabled={bet === 1} onClick={this.betLess}>-</button>
-                        <span className="bet">{bet}</span>
-                        <button className="game-button" disabled={bet >= money} onClick={this.betMore}>+</button>
-                    </div>
-                    <button className="game-button bet-button" onClick={this.letsPlay}>Play</button>
-
-                </div>
-                
+                <Bet bet={bet} money={money} betLess={this.betLess} betMore={this.betMore} letsPlay={this.letsPlay} />
             )
         }
         

@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
 
 class StartPage extends Component{
     
     state ={
         name: "",
-        age: "",
         ready: false,
         badName: false
     }
 
     handleInputChange = event => {
-        if(event.target.type === 'text'){
-            this.setState({name: event.target.value});
-        }else{
-            this.setState({age: event.target.value});
-        }
-    }
 
+        this.setState({name: event.target.value});
+        
+    }
 
     handleSubmit = event => {
         event.preventDefault();
-        const {age, name} = this.state;
+        const { name } = this.state;
         if(!name){
             this.setState({badName: true});
         }else{
@@ -30,11 +26,24 @@ class StartPage extends Component{
             this.setState({ready: true, badName: false});
         }
        
+    }
 
+    componentDidMount(){
+        localStorage.setItem('name', '');
+
+        if(!localStorage.getItem('highscores')){
+            const highscores = [
+                {name: 'Jerry', score: 1225 },
+                {name: 'Merry', score: 1000 },
+                {name: 'Donald', score: 225 },
+                {name: 'Alicia', score: 50 }
+            ];
+            localStorage.setItem('highscores', JSON.stringify(highscores));
+        }
     }
 
     render(){
-        const { name, age, ready, badName  } = this.state;
+        const { name, ready, badName  } = this.state;
         
         if(ready){
             return <Redirect to="/game"/>

@@ -1,4 +1,1 @@
-#Blackjack react game
-
-Simple blackjack game
-
+Simple blackjack react game

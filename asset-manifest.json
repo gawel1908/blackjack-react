@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/blackjack-react/static/css/main.00969d65.chunk.css",
-    "main.js": "/blackjack-react/static/js/main.0b0f805f.chunk.js",
-    "main.js.map": "/blackjack-react/static/js/main.0b0f805f.chunk.js.map",
+    "main.js": "/blackjack-react/static/js/main.2a47c56d.chunk.js",
+    "main.js.map": "/blackjack-react/static/js/main.2a47c56d.chunk.js.map",
     "runtime-main.js": "/blackjack-react/static/js/runtime-main.c6767dfa.js",
     "runtime-main.js.map": "/blackjack-react/static/js/runtime-main.c6767dfa.js.map",
     "static/js/2.bdf2654c.chunk.js": "/blackjack-react/static/js/2.bdf2654c.chunk.js",
     "static/js/2.bdf2654c.chunk.js.map": "/blackjack-react/static/js/2.bdf2654c.chunk.js.map",
     "index.html": "/blackjack-react/index.html",
-    "precache-manifest.5ac429c3c786b1e122919dc114ce82dc.js": "/blackjack-react/precache-manifest.5ac429c3c786b1e122919dc114ce82dc.js",
+    "precache-manifest.7df684833550998d48c15f8b18b2c295.js": "/blackjack-react/precache-manifest.7df684833550998d48c15f8b18b2c295.js",
     "service-worker.js": "/blackjack-react/service-worker.js",
     "static/css/main.00969d65.chunk.css.map": "/blackjack-react/static/css/main.00969d65.chunk.css.map",
     "static/media/App.scss": "/blackjack-react/static/media/green_back.80d296e9.png"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c6767dfa.js",
     "static/js/2.bdf2654c.chunk.js",
     "static/css/main.00969d65.chunk.css",
-    "static/js/main.0b0f805f.chunk.js"
+    "static/js/main.2a47c56d.chunk.js"
   ]
 }

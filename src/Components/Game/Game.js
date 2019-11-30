@@ -135,7 +135,7 @@ class Game extends Component{
         const { playerName, money } = this.state;
         const highscores = JSON.parse(localStorage.getItem('highscores'));
         highscores.push({name: playerName, score: money});
-        localStorage.setItem(highscores, JSON.stringify(highscores))
+        localStorage.setItem('highscores', JSON.stringify(highscores))
         this.setState({finish: true});
     }
     

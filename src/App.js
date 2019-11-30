@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import StartPage from './Components/StartPage/StartPage';
 import Game from './Components/Game/Game';
 import Highscores from './Components/Highscores/Highscores';

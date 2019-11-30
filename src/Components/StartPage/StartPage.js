@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
+
 
 class StartPage extends Component{
     
@@ -49,17 +51,25 @@ class StartPage extends Component{
             return <Redirect to="/game"/>
         }
         return(
-            <div className="start-page">
-                <h1>BlackJack</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <span className="input-header">Nick:</span>
-                        <input type="text" value={name} onChange={this.handleInputChange} />
-                        {badName ? <span className="validation-message">Nick is required</span> : null}
-                    </label>
+            <div className="start-page row">
+                <div className="col-md-12">
+                    <h1>BlackJack</h1>
+                </div>
+                <div className="col-md-12">
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            <span className="input-header">Nick:</span>
+                            <input type="text" value={name} onChange={this.handleInputChange} />
+                            {badName ? <span className="validation-message">Nick is required</span> : null}
+                        </label>
                     
-                    <input className="play-button" type="submit" value="Play" />
-                </form>
+                        <input className="play-button" type="submit" value="Play" />
+                    </form>
+                </div>
+                <div className="mx-auto">
+                    <Link to="/highscores"><button className="game-button">Highscores</button></Link>
+                </div>
+                
             </div>
         )
     }

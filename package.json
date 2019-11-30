@@ -1,6 +1,6 @@
 {
     "name": "blackjack",
-    "homepage": "https://gawel1908.github.io/blackjack/",
+    "homepage": "https://gawel1908.github.io/blackjack-react/",
     "version": "0.1.0",
     "private": true,
     "dependencies": {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 
-
+console.log(222);
 class StartPage extends Component{
     
     state ={
@@ -52,10 +52,10 @@ class StartPage extends Component{
         }
         return(
             <div className="start-page row">
-                <div className="col-md-12">
+                <div className="col-md-12 col-xs-12">
                     <h1>BlackJack</h1>
                 </div>
-                <div className="col-md-12">
+                <div className="col-md-12 col-xs-12">
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <span className="input-header">Nick:</span>

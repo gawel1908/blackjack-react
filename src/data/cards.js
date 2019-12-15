@@ -1,5 +1,5 @@
 const cards = [
-    {
+    /*{
       "cardId": "2c",
       "cardClass": "cards card-2c",
       "cardValue": 2
@@ -138,7 +138,7 @@ const cards = [
       "cardId": "8s",
       "cardClass": "cards card-8s",
       "cardValue": 8
-    },
+    },*/
     {
       "cardId": "9c",
       "cardClass": "cards card-9c",

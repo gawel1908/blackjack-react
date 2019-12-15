@@ -58,6 +58,7 @@ class Game extends Component{
         dealerScore += deckCards[randomIndex].cardValue;
         dealerCards.push(deckCards[randomIndex]);
         deckCards.splice(randomIndex, 1);
+        
         const statesToSet = {
             dealerScore: dealerScore,
             dealerCards: dealerCards,
@@ -80,6 +81,9 @@ class Game extends Component{
                 statesToSet.playerWin = true;
                 statesToSet.money = money + bet * 2;
             }
+        }
+        if(money === 0){
+            statesToSet.finish = true;
         }
         this.setState(statesToSet);
     }
@@ -155,38 +159,39 @@ class Game extends Component{
 
 
     render(){
-        const { gameStarted, bet, money, playerName, dealerScore, playerScore, dealerCards, playerCards, playerWin, dealerWin, draw, finish } = this.state;
+        const { gameStarted, bet, money, dealerScore, playerScore, dealerCards, playerCards, playerWin, dealerWin, draw, finish } = this.state;
         
         if(finish){
             return <Redirect to="/highscores"/>
         }
         if(gameStarted){
             return(
-                <div>
+                <div className="col-md-12 col-xs-12">
                     <DealersHand cards={dealerCards} />
                     <div className="panel">
-                            <h2>Dealer's score: {dealerScore}</h2>
+                            <h3>Dealer's score: {dealerScore}</h3>
                     </div>
                     <Hand cards={playerCards} />
+                    {draw || playerWin || dealerWin ? 
                     <div className="game-status">
-                        <div className="info lose">{dealerWin ? 'You lost.' : null}</div>
-                        <div className="info win">{playerWin ? 'You won!' : null}</div>
-                        <div className="info draw">{draw ? 'Draw.' : null}</div>
+                        {dealerWin ?<div className="info lose">You lost.</div> : null}
+                        {playerWin ?<div className="info win"> You won!</div> : null}
+                        {draw ? <div className="info draw">Draw.</div> : null}
                         <div>
-                            { draw || playerWin || dealerWin ? 
-                            <div>
+                            <div className="buttons">
                                 <button className="game-button" onClick={this.startNewGame}>Play again</button>
                                 <button className="game-button" onClick={this.endGame}>End game and save score</button>
-                            </div> : null}
+                            </div>
                         </div>
-                    </div>
+                    </div> 
+                    : null}
                     <div className="panel">
-                            <h2>Your score: {playerScore}</h2>
+                            <h3>Your score: {playerScore}</h3>
                     </div>
                     <div className="panel">
                         
-                        <button className="game-button" onClick={this.getPlayerCard} disabled={playerScore > 20 || playerWin || dealerWin}>Get card</button>
-                        <button className="game-button" onClick={this.endRound} disabled={playerScore > 20 || playerWin || dealerWin}>End round</button>
+                        <button className="game-button" onClick={this.getPlayerCard} disabled={playerScore > 20 || playerWin || dealerWin || draw}>Get card</button>
+                        <button className="game-button" onClick={this.endRound} disabled={playerScore > 20 || playerWin || dealerWin || draw}>End round</button>
                     </div>
                 </div>
             )

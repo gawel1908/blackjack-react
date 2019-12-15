@@ -8,9 +8,9 @@ const Bet = props => {
                 <h3>Your money: {money}</h3>
             </div>
             <div>
-                <button className="game-button" disabled={bet === 1} onClick={betLess}>-</button>
+                <button className="game-button" disabled={bet === 5} onClick={betLess}>-</button>
                 <span className="bet">{bet}</span>
-                <button className="game-button" disabled={bet >= money} onClick={betMore}>+</button>
+                <button className="game-button" disabled={bet >= 200} onClick={betMore}>+</button>
             </div>
             <button className="game-button bet-button" onClick={letsPlay}>Play</button>
 

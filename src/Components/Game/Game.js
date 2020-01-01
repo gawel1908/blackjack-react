@@ -64,7 +64,19 @@ class Game extends Component{
             dealerCards: dealerCards,
             deck: deckCards
         };
+
         if(dealerCards.length === 2){
+            if(playerScore !== 21 && dealerScore < 15){
+                const randomIndex = Math.floor(Math.random() * deckCards.length);
+                dealerScore += deckCards[randomIndex].cardValue;
+                dealerCards.push(deckCards[randomIndex]);
+                deckCards.splice(randomIndex, 1);
+                statesToSet.deck = deckCards;
+                statesToSet.dealerCards = dealerCards;
+                statesToSet.dealerScore = dealerScore;
+                this.setState(statesToSet);
+            }
+            
             if(dealerScore === playerScore){
                 statesToSet.draw = true;
                 statesToSet.money = money + bet;
@@ -80,10 +92,13 @@ class Game extends Component{
             }else if(dealerScore < playerScore){
                 statesToSet.playerWin = true;
                 statesToSet.money = money + bet * 2;
+            }else if(dealerScore > 21){
+                statesToSet.dealerWin = true;
+                statesToSet.money = money - bet;
             }
         }
         if(money === 0){
-            statesToSet.finish = true;
+            this.endGame();
         }
         this.setState(statesToSet);
     }
@@ -102,6 +117,7 @@ class Game extends Component{
             });
         
     }
+
     getPlayerCard = () => {
         
         const { deck, playerCards, bet } = this.state;
@@ -110,6 +126,7 @@ class Game extends Component{
         const randomIndex = Math.floor(Math.random() * deckCards.length);
         playerScore += deckCards[randomIndex].cardValue;
         playerCards.push(deckCards[randomIndex]);
+
         if(playerScore === 21){
             playerWin = true;
             money = money + bet * 2;
@@ -127,7 +144,6 @@ class Game extends Component{
             dealerWin: dealerWin,
             money: money
         });
-        
         
     }
 
@@ -169,7 +185,7 @@ class Game extends Component{
                 <div className="col-md-12 col-xs-12">
                     <DealersHand cards={dealerCards} />
                     <div className="panel">
-                            <h3>Dealer's score: {dealerScore}</h3>
+                        <h3>Dealer's score: {dealerScore}</h3>
                     </div>
                     <Hand cards={playerCards} />
                     {draw || playerWin || dealerWin ? 

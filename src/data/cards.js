@@ -82,7 +82,7 @@ const cards = [
       },
       {
         "cardID": "KC",
-        "cardClass": "cards card-kKC",
+        "cardClass": "cards card-KC",
         "cardValue": 4
       },
       {

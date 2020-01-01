@@ -4,10 +4,11 @@ import Card from './Card';
 const DealersHand = props => {
 
     const { cards } = props;
+
     return (
         <div className="hand">
-            <Card className={cards[0].cardClass}/>
-            <Card className={cards[1] ? cards[1].cardClass : 'cards card-back'}/>
+            {cards.map((card, i) => <Card key={i} className={card.cardClass}/> )}
+            <Card key="5" className={cards[1] ? cards[1].cardClass : 'cards card-back'}/>
         </div>
     );
 }

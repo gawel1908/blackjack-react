@@ -5,24 +5,31 @@ $cards-ids: 9C, 9D, 9H, 9S, 10C, 10D, 10H, 10S, JC, JD, JH, JS, QC, QD, QH, QS, 
   display: flex;
   justify-content: center;
 
-.cards{
-  width: 100px;
-  height: 140px;
-  margin: 20px 5px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-@each $id in $cards-ids{
-  .card-#{$id}{
-    background-image: url('../images/cards/#{$id}.png');
-  }
-}
- 
+  .cards{
+    width: 100px;
+    height: 140px;
+    margin: 20px 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
   
+  }
+
+  @each $id in $cards-ids{
+    .card-#{$id}{
+      background-image: url('../images/cards/#{$id}.png');
+      animation: getCard .5s;
+    }
+  }
+ 
   .card-back{
     background-image: url('../images/cards/green_back.png');
+    animation: getCard .5s;
     
   }
+}
+
+@keyframes getCard {
+  from {margin-left: -600px;}
+  to {margin-left: 5px;}
 }
 

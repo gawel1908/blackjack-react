@@ -62,7 +62,8 @@ class Game extends Component{
         const statesToSet = {
             dealerScore: dealerScore,
             dealerCards: dealerCards,
-            deck: deckCards
+            deck: deckCards,
+            bet: 5
         };
 
         if(dealerCards.length === 2){
@@ -76,23 +77,23 @@ class Game extends Component{
                 statesToSet.dealerScore = dealerScore;
                 this.setState(statesToSet);
             }
-            
-            if(dealerScore === playerScore){
+
+            if(dealerScore === playerScore && dealerScore < 21 && playerScore < 21){
                 statesToSet.draw = true;
                 statesToSet.money = money + bet;
-            } else if(dealerScore === 21){
-                statesToSet.dealerWin = true;
-                statesToSet.money = money - bet;
             } else if(playerScore === 21){
                 statesToSet.playerWin = true;
                 statesToSet.money = money + bet * 2;
-            } else if(dealerScore > playerScore){
+            } else if(dealerScore === 21){
                 statesToSet.dealerWin = true;
                 statesToSet.money = money - bet;
-            }else if(dealerScore < playerScore){
+            } else if(dealerScore > playerScore && dealerScore < 21){
+                statesToSet.dealerWin = true;
+                statesToSet.money = money - bet;
+            }else if(dealerScore < playerScore && playerScore < 21){
                 statesToSet.playerWin = true;
                 statesToSet.money = money + bet * 2;
-            }else if(dealerScore > 21){
+            }else if(playerScore > 21){
                 statesToSet.dealerWin = true;
                 statesToSet.money = money - bet;
             }
@@ -126,7 +127,8 @@ class Game extends Component{
         const randomIndex = Math.floor(Math.random() * deckCards.length);
         playerScore += deckCards[randomIndex].cardValue;
         playerCards.push(deckCards[randomIndex]);
-
+        deckCards.splice(randomIndex, 1);
+        console.log(deck);
         if(playerScore === 21){
             playerWin = true;
             money = money + bet * 2;

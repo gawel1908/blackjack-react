@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/blackjack-react/static/css/main.aede121f.chunk.css",
-    "main.js": "/blackjack-react/static/js/main.66223d03.chunk.js",
-    "main.js.map": "/blackjack-react/static/js/main.66223d03.chunk.js.map",
+    "main.css": "/blackjack-react/static/css/main.3f04a897.chunk.css",
+    "main.js": "/blackjack-react/static/js/main.d9ac5baa.chunk.js",
+    "main.js.map": "/blackjack-react/static/js/main.d9ac5baa.chunk.js.map",
     "runtime-main.js": "/blackjack-react/static/js/runtime-main.c6767dfa.js",
     "runtime-main.js.map": "/blackjack-react/static/js/runtime-main.c6767dfa.js.map",
-    "static/js/2.ba753e68.chunk.js": "/blackjack-react/static/js/2.ba753e68.chunk.js",
-    "static/js/2.ba753e68.chunk.js.map": "/blackjack-react/static/js/2.ba753e68.chunk.js.map",
+    "static/js/2.f311ec48.chunk.js": "/blackjack-react/static/js/2.f311ec48.chunk.js",
+    "static/js/2.f311ec48.chunk.js.map": "/blackjack-react/static/js/2.f311ec48.chunk.js.map",
     "index.html": "/blackjack-react/index.html",
-    "precache-manifest.ae836fdc28ab1be15d6be94bd790e877.js": "/blackjack-react/precache-manifest.ae836fdc28ab1be15d6be94bd790e877.js",
+    "precache-manifest.9aa71afba1f7ac2bfb58eb401a66672a.js": "/blackjack-react/precache-manifest.9aa71afba1f7ac2bfb58eb401a66672a.js",
     "service-worker.js": "/blackjack-react/service-worker.js",
-    "static/css/main.aede121f.chunk.css.map": "/blackjack-react/static/css/main.aede121f.chunk.css.map",
-    "static/media/App.scss": "/blackjack-react/static/media/green_back.80d296e9.png"
+    "static/css/main.3f04a897.chunk.css.map": "/blackjack-react/static/css/main.3f04a897.chunk.css.map",
+    "static/media/index.scss": "/blackjack-react/static/media/green_back.80d296e9.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c6767dfa.js",
-    "static/js/2.ba753e68.chunk.js",
-    "static/css/main.aede121f.chunk.css",
-    "static/js/main.66223d03.chunk.js"
+    "static/js/2.f311ec48.chunk.js",
+    "static/css/main.3f04a897.chunk.css",
+    "static/js/main.d9ac5baa.chunk.js"
   ]
 }
